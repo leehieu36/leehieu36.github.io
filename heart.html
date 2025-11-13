@@ -1017,12 +1017,6 @@
                                 alert('Không tìm thấy link mp3');
                             }
                         })
-                        .catch(() => {
-                            audio.classList.add("d-none");
-                            alert(
-                                'Oops, tớ không tìm thấy bài hát này rồi. Có thể đây là bài Premium, cậu thử chọn bài khác giúp tớ nha'
-                            );
-                        });
                 } else if (type_music === 'link') {
                     audio.src = music;
                     audio.classList.remove('d-none');
@@ -1046,25 +1040,10 @@
         });
     </script>
             <script>
-            // Chặn chuột phải
             document.addEventListener("contextmenu", function(e) {
                 e.preventDefault();
             });
-
-            // Chặn F12, Ctrl+U, Ctrl+Shift+I/J/C/S, Cmd+Opt+I (Mac)
-            document.addEventListener("keydown", function(e) {
-                if (
-                    e.key === "F12" ||
-                    (e.ctrlKey && e.shiftKey && ["i", "j", "c", "s"].includes(e.key.toLowerCase())) ||
-                    (e.ctrlKey && e.key.toLowerCase() === "u") ||
-                    (e.metaKey && e.altKey && e.key.toLowerCase() === "i") || // Cmd + Opt + I
-                    (e.metaKey && e.key.toLowerCase() === "u") // Cmd + U
-                ) {
-                    e.preventDefault();
-                    return false;
-                }
-            });
-
+                
             // Xóa console methods
             console.log = () => {};
             console.debug = () => {};
@@ -1081,19 +1060,7 @@
                         '<h1 style="text-align:center;margin-top:100px;color:red">🔒 Bạn đang cố mở Developer Tools!</h1>';
                 }
             }, 1000);
-
-            // Phát hiện DevTools qua kích thước cửa sổ
-            // function detectDevToolsSize() {
-            //     if (
-            //         window.outerWidth - window.innerWidth > 160 ||
-            //         window.outerHeight - window.innerHeight > 160
-            //     ) {
-            //         document.body.innerHTML = '<h1 style="text-align:center;margin-top:100px;color:red">🔒 Developer Tools bị phát hiện!</h1>';
-            //     }
-            // }
-            // window.onresize = detectDevToolsSize;
-            // window.onload = detectDevToolsSize;
-
+                
             // Phát hiện mở console qua toString tampering
             (function() {
                 const element = new Image();
